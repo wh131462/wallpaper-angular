@@ -42,3 +42,5 @@ testem.log
 Thumbs.db
 yarn.lock
 package-lock.json
+# resources
+resources

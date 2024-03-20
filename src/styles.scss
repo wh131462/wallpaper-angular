@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+// 暗黑模式
+@container style(--dark-mode: 1) {
+  body{
+    --background-color: #333333;
+  }
+}
+// 亮色模式
+@container style(--dark-mode: 0) {
+  body{
+    --background-color: #FFFFFF;
+  }
+}
+
+@media (prefers-color-scheme: dark){
+  html{
+    --dark-mode: 1;
+  }
+}
+@media (prefers-color-scheme: light){
+  html{
+    --dark-mode: 0;
+  }
+}
+html{
+  container-name: root;
+  container-type: normal;
+  color-scheme: dark light;
+}
+
+// 全局通用的样式
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
