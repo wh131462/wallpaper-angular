@@ -1,15 +1,26 @@
 import { Routes } from '@angular/router';
 import {AppComponent} from "./app.component";
+import {ImageWallpaperComponent} from "../pages/image-wallpaper/image-wallpaper.component";
+import {VideoWallpaperComponent} from "../pages/video-wallpaper/video-wallpaper.component";
 
 export const routes: Routes = [
   {
     path:"",
-    redirectTo:"wallpaper",
+    redirectTo:"wallpaper/image",
     pathMatch:"full"
   },
   {
     path:"wallpaper",
-    data:{},
-    loadComponent:()=>AppComponent
+    loadComponent:()=>AppComponent,
+    children: [
+      {
+        path:"image",
+        loadComponent:()=>ImageWallpaperComponent
+      },
+      {
+        path:"video",
+        loadComponent:()=>VideoWallpaperComponent
+      },
+    ]
   }
 ];
